@@ -112,8 +112,8 @@ EMBEDDING MODEL: WEAK
   instead of spreading across the semantic space.
   
   Metrics:
-  • Isotropy: 45% (should be >70%)
-  • Distinctiveness: 21% (should be >60%)
+  - Isotropy: 45% (should be >70%)
+  - Distinctiveness: 21% (should be >60%)
   
   Impact: Vector search can't find semantically
   similar documents
@@ -215,13 +215,15 @@ Add more databases by implementing the `VectorDB` protocol.
 
 ```
 Rust Core (pyhound_core)
-├─ Embedding quality metrics
-├─ Pipeline analysis
-├─ Drift detection
-└─ Improvement tracking
-    ↓ (PyO3 bindings)
+- Embedding quality metrics
+- Pipeline analysis
+- Drift detection
+- Improvement tracking
+  |
+  (PyO3 bindings)
+  |
 Python Wrapper
-└─ Hound class (main API)
+- Hound class (main API)
 ```
 
 **Why Rust?**
