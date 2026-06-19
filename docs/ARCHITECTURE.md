@@ -31,21 +31,21 @@ PyHound is a diagnostic tool for RAG/LLM retrieval systems, built with:
 └─────────────────────┬───────────────────────────────────────┘
                       │
 ┌─────────────────────▼───────────────────────────────────────┐
-│ Database Adapters                                           │
+│ Database Adapters (All Open-Source)                         │
 │ ├─ Qdrant adapter                                          │
 │ ├─ Chroma adapter                                          │
-│ ├─ Pinecone adapter                                        │
 │ ├─ Milvus adapter                                          │
-│ └─ Weaviate adapter                                        │
+│ ├─ Weaviate adapter                                        │
+│ └─ PostgreSQL pgvector adapter                             │
 └─────────────────────┬───────────────────────────────────────┘
                       │
 ┌─────────────────────▼───────────────────────────────────────┐
-│ Vector Databases                                            │
+│ Vector Databases (Open-Source)                              │
 │ ├─ Qdrant                                                  │
 │ ├─ Chroma                                                  │
-│ ├─ Pinecone                                                │
 │ ├─ Milvus                                                  │
-│ └─ Weaviate                                                │
+│ ├─ Weaviate                                                │
+│ └─ PostgreSQL + pgvector                                   │
 └─────────────────────────────────────────────────────────────┘
 ```
 

@@ -174,16 +174,6 @@ hound = Hound(
 chroma run --server --host localhost --port 8000
 ```
 
-### Pinecone
-
-```python
-hound = Hound(
-    db="pinecone",
-    index_name="documents",
-    api_key="your-api-key"
-)
-```
-
 ### Milvus
 
 ```python

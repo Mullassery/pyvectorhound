@@ -85,11 +85,11 @@ PyHound outperforms existing solutions in three critical dimensions:
 | **DATABASE SUPPORT** | | | | | | |
 | Qdrant | No | Yes | No | No | No | Yes |
 | Chroma | No | Yes | No | No | Yes | Yes |
-| Pinecone | Yes | Yes | No | No | No | Yes |
 | Milvus | No | No | No | No | No | Yes |
 | Weaviate | No | No | No | No | No | Yes |
 | PostgreSQL pgvector | No | No | No | No | No | Yes |
 | Database Agnostic | No | No | No | No | No | Yes |
+| All Open-Source | No | No | No | No | No | Yes |
 | **DEPLOYMENT** | | | | | | |
 | Local Deployment | No | No | Yes | Yes | Yes | Yes |
 | Cloud Deployment | Yes | Yes | No | No | No | Planned |

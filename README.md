@@ -31,7 +31,7 @@ Use PyHound when:
 - **Model Comparison** — Compare embedding/reranker models with quality/cost trade-offs
 - **Improvement Tracking** — Measure impact after applying fixes
 - **Drift Detection** — Monitor embedding quality degradation
-- **Database-Agnostic** — Works with Qdrant, Chroma, Pinecone, Milvus, Weaviate, PostgreSQL pgvector
+- **Database-Agnostic** — Works with Qdrant, Chroma, Milvus, Weaviate, PostgreSQL pgvector
 
 ## 5-Minute Setup
 
@@ -179,7 +179,7 @@ RECOMMENDATIONS (Ranked by Impact)
 A: No. Install via pip, point it at your existing vector database, and run diagnosis.
 
 **Q: Can PyHound work with my existing vector database?**  
-A: Yes. Supports Qdrant, Chroma, Pinecone, Milvus, Weaviate, PostgreSQL pgvector.
+A: Yes. Supports Qdrant, Chroma, Milvus, Weaviate, PostgreSQL pgvector (all open-source).
 
 **Q: Does PyHound modify my data?**  
 A: No. PyHound is read-only. It analyzes but never modifies your vectors or documents.
@@ -201,12 +201,13 @@ A: Yes. PyHound replaces them by providing diagnostics (why it failed, how to fi
 
 ## Supported Vector Databases
 
--  **Qdrant** — Full support
--  **Chroma** — Full support
--  **Pinecone** — Full support
--  **Milvus** — Full support
--  **Weaviate** — Full support
--  **PostgreSQL (pgvector)** — Full support
+All database connectors are open-source compliant:
+
+-  **Qdrant** — Open-source vector database
+-  **Chroma** — Open-source embedding database
+-  **Milvus** — Open-source vector database
+-  **Weaviate** — Open-source semantic search engine
+-  **PostgreSQL (pgvector)** — SQL + open-source pgvector extension
 -  **Custom** — Query any database
 
 Add more databases by implementing the `VectorDB` protocol.

@@ -188,71 +188,6 @@ class ChromaAdapter(VectorDB):
         return self.collection.count()
 
 
-class PineconeAdapter(VectorDB):
-    """Adapter for Pinecone vector database."""
-
-    def __init__(self, index_name: str, api_key: str, **kwargs):
-        """
-        Initialize Pinecone adapter.
-
-        Args:
-            index_name: Index name
-            api_key: Pinecone API key
-        """
-        self.index_name = index_name
-        self.api_key = api_key
-        self.index = None
-
-    def connect(self) -> None:
-        """Connect to Pinecone."""
-        try:
-            from pinecone import Pinecone
-
-            pc = Pinecone(api_key=self.api_key)
-            self.index = pc.Index(self.index_name)
-        except ImportError:
-            raise ImportError("pinecone-client not installed. Run: pip install pyhound[pinecone]")
-
-    def search(
-        self, query_embedding: np.ndarray, top_k: int = 5
-    ) -> List[Dict[str, Any]]:
-        """Search in Pinecone."""
-        if self.index is None:
-            self.connect()
-
-        results = self.index.query(vector=query_embedding.tolist(), top_k=top_k)
-
-        return [
-            {
-                "id": match["id"],
-                "score": match["score"],
-                "embedding": query_embedding,
-            }
-            for match in results["matches"]
-        ]
-
-    def get_embeddings(self, doc_ids: List[str]) -> Dict[str, np.ndarray]:
-        """Get embeddings for documents."""
-        if self.index is None:
-            self.connect()
-
-        embeddings = {}
-        results = self.index.fetch(ids=doc_ids)
-
-        for doc_id, vector in results["vectors"].items():
-            embeddings[doc_id] = np.array(vector["values"])
-
-        return embeddings
-
-    def corpus_size(self) -> int:
-        """Get corpus size."""
-        if self.index is None:
-            self.connect()
-
-        stats = self.index.describe_index_stats()
-        return stats["total_vector_count"]
-
-
 class MilvusAdapter(VectorDB):
     """Adapter for Milvus vector database."""
 
@@ -539,7 +474,6 @@ def get_adapter(db: str, endpoint: str, index_name: str, **kwargs: Any) -> Vecto
     adapters = {
         "qdrant": QdrantAdapter,
         "chroma": ChromaAdapter,
-        "pinecone": PineconeAdapter,
         "milvus": MilvusAdapter,
         "weaviate": WeaviateAdapter,
         "postgres": PostgresVectorAdapter,
