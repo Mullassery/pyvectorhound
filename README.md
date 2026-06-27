@@ -68,6 +68,12 @@ Use PyHound when:
 pip install pyhound-core
 ```
 
+OR
+
+```bash
+uv add pyhound-core
+```
+
 ### Step 2: Set Up a Vector Database (Local Example)
 
 ```bash
